@@ -2,57 +2,77 @@ import java.util.Scanner;
 
 
 public class Main {
+    /**
+     * Name: Myles Bennette
+     * Course: COSC 2436
+     * Section: 901
+     * Professor Name: Dr. Basudeb Dash
+     * Date:11/11/2022
+     * Description:
+     *   This class's job is to pass information to the link list class
+     * */
     public static void main(String[] args)
     {
         LinkList linklist = new LinkList();
-
-
-        linklist.addNode("Myles",100);
-        linklist.addNode("Robin", 200);
-        linklist.addNode("Nathan",300);
-        linklist.addNode("Isaiah", 400);
-
-        linklist.displayList();
-        System.out.println("---------------------");
-        linklist.sortList();
-        linklist.displayList();
-
-        System.exit(0);
         Scanner scan = new Scanner(System.in);
-        String Name;
-        int Salary;
+        String name;
+        int salary;
 
-        int intValue;
+        int intValue =0;
 
-        System.out.println("Hello and welcome to the program, please select an option!");
-        System.out.println("1)Add person \n 2)Remove person \n 3)Display list \n 4)Exit");
-        intValue = scan.nextInt();
-
-        switch(intValue)
+        while(intValue != 6)
         {
-            case 1:
-                System.out.println("please enter a person's name and salary");
-                Name = scan.nextLine();
-                Salary = scan.nextInt();
-                linklist.addNode(Name,Salary);
-                break;
+            System.out.println("Hello and welcome to the program, please select an option!");
+            System.out.println(" 1)Add person \n 2)Remove person \n 3)Sort list \n 4)Reverse list \n 5)Display list \n 6)Exit");
+            System.out.print("Enter value: ");
+            intValue = scan.nextInt();
+            scan.nextLine();
 
-            case 2:
-                //call to remove node
-                System.out.println("please enter a person's name so they can be removed");
-                Name = scan.nextLine();
+            switch (intValue) {
+                case 1:
+                    System.out.println("please enter a person's name and salary");
+                    System.out.println("Enter name: ");
+                    name = scan.nextLine();
+                    System.out.println("Enter salary: ");
+                    salary = scan.nextInt();
 
-                //Salary = scan.nextInt();
+                    scan.nextLine();
 
-                linklist.removeNode(Name);
-                break;
+                    linklist.addNode(name, salary);
+                    break;
 
-            case 3:
-                linklist.displayList();
-                break;
+                case 2:
+                    System.out.println("please enter a person's name so they can be removed");
+                    System.out.print("Enter name: ");
+                    name = scan.nextLine();
+                    if(linklist.removeNode(name))
+                    {
+                        System.out.println("User is removed");
+                    }
+                    else
+                    {
+                        System.out.println("User is not on the list");
+                    }
+                    break;
 
-            case 4:
-                break;
+                case 3:
+                    linklist.sortList();
+                    break;
+
+                case 4:
+                    linklist.reverseList();
+                    break;
+
+                case 5:
+                    System.out.println("--------------------");
+                    linklist.displayList();
+                    System.out.println("--------------------");
+                    break;
+
+                case 6:
+                    System.exit(0);
+                    break;
+            }
         }
     }
 }

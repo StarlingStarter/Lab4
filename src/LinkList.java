@@ -1,3 +1,14 @@
+/**
+ * Name: Myles Bennette
+ * Course: COSC 2436
+ * Section: 901
+ * Professor Name: Dr. Basudeb Dash
+ * Date:11/11/2022
+ * Description:
+ *   This class's job is to take the information given by the user from main.
+ *   Then based off the user's response add a new person to the list, remove a person from the list, sort the list in alphabetical order, sort the list in reverse order.
+ *   Finally, display the list of the users that have been added.
+ * */
 public class LinkList
 {
     Node head;
